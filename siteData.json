@@ -114,7 +114,7 @@
         "adding-a-person-add": "Adding a person: add",
         "adding-an-appointment-add-appt": "Adding an appointment: add appt",
         "listing-all-patients-list": "Listing all patients : list",
-        "deleting-an-appointment": "Deleting an appointment :",
+        "deleting-an-appointment-delete-appt": "Deleting an appointment : delete appt",
         "finding-patient-details-by-name-find": "Finding patient details by name: find",
         "deleting-a-person-delete": "Deleting a person : delete",
         "clearing-all-entries-clear": "Clearing all entries : clear",
