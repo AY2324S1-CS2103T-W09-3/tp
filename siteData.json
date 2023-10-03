@@ -112,6 +112,7 @@
         "features": "Features",
         "viewing-help-help": "Viewing help : help",
         "adding-a-person-add": "Adding a person: add",
+        "adding-an-appointment-add-appt": "Adding an appointment: add appt",
         "listing-all-patients-list": "Listing all patients : list",
         "deleting-an-appointment": "Deleting an appointment :",
         "finding-patient-details-by-name-find": "Finding patient details by name: find",
