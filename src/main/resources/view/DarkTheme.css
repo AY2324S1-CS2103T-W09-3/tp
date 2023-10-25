@@ -1,3 +1,4 @@
+
 .background {
     -fx-background-color: derive(#1d1d1d, 20%);
     background-color: #383838; /* Used in the default.html file */
@@ -100,15 +101,19 @@
 }
 
 .list-cell:filled:even {
-    -fx-background-color: #3c3e3f;
+    -fx-background-color: #142d4c;
+    -fx-border-color: black;
+    -fx-border-width: 1;
 }
 
 .list-cell:filled:odd {
-    -fx-background-color: #515658;
+    -fx-background-color: #385170;
+    -fx-border-color: black;
+    -fx-border-width: 1;
 }
 
 .list-cell:filled:selected {
-    -fx-background-color: #424d5f;
+    -fx-background-color: black;
 }
 
 .list-cell:filled:selected #cardPane {
