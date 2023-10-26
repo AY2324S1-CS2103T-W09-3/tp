@@ -1,0 +1,98 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":ClinicAssistantParser" as ClinicAssistantParser LOGIC_COLOR
+participant ":DeleteCommandParser" as DeleteCommandParser LOGIC_COLOR
+participant "d:DeleteCommand" as DeleteCommand LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant "model:ModelManager" as ModelManager MODEL_COLOR
+participant ":ClinicAssistant" as ClinicAssistant MODEL_COLOR
+participant ":FilteredPersonList" as FilteredPersonList MODEL_COLOR
+participant ":UniquePersonList" as UniquePersonList MODEL_COLOR
+
+end box
+
+[-> LogicManager : execute("delete 3")
+activate LogicManager
+
+LogicManager -> ClinicAssistantParser : parseCommand("delete 3")
+activate ClinicAssistantParser
+
+create DeleteCommandParser
+ClinicAssistantParser -> DeleteCommandParser
+activate DeleteCommandParser
+
+DeleteCommandParser --> ClinicAssistantParser
+deactivate DeleteCommandParser
+
+ClinicAssistantParser ->  DeleteCommandParser : parse("3")
+activate  DeleteCommandParser
+
+create DeleteCommand
+DeleteCommandParser ->  DeleteCommand : new DeleteCommand(3)
+activate  DeleteCommand
+
+DeleteCommand --> DeleteCommandParser : d
+deactivate   DeleteCommand
+
+DeleteCommandParser --> ClinicAssistantParser : d
+deactivate  DeleteCommandParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+DeleteCommandParser -[hidden]-> ClinicAssistantParser
+destroy DeleteCommandParser
+
+ClinicAssistantParser --> LogicManager : d
+deactivate ClinicAssistantParser
+
+LogicManager ->  DeleteCommand : execute(m)
+activate  DeleteCommand
+
+DeleteCommand -> ModelManager : getFilteredPersonList()
+activate ModelManager
+
+ModelManager -> DeleteCommand
+deactivate ModelManager
+
+DeleteCommand -> FilteredPersonList :get(3)
+activate FilteredPersonList
+
+FilteredPersonList --> DeleteCommand : p
+deactivate FilteredPersonList
+
+DeleteCommand --> ModelManager : deletePerson(p)
+activate ModelManager
+
+ModelManager -->  ClinicAssistant :removePerson(p)
+activate ClinicAssistant
+
+ClinicAssistant --> UniquePersonList :remove(p)
+activate UniquePersonList
+
+UniquePersonList --> ClinicAssistant
+deactivate UniquePersonList
+
+ClinicAssistant --> ModelManager
+deactivate ClinicAssistant
+
+ModelManager --> DeleteCommand
+deactivate ModelManager
+
+create CommandResult
+DeleteCommand -> CommandResult: new CommandResult(DELETE_SUCCESS_MSG)
+activate CommandResult
+
+CommandResult -->  DeleteCommand
+deactivate CommandResult
+
+DeleteCommand --> LogicManager : commandResult
+deactivate DeleteCommand
+
+[<--LogicManager : commandResult
+deactivate LogicManager
+@enduml
