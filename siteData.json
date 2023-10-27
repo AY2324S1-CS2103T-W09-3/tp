@@ -57,6 +57,8 @@
         "list-feature": "List feature",
         "find-appointments-by-date-feature": "Find appointments by date feature",
         "find-patient-by-nric-feature": "Find patient by NRIC feature",
+        "add-delete-appointment-feature": "Add/delete Appointment feature",
+        "edit-appointment-feature": "Edit Appointment feature",
         "documentation-logging-testing-configuration-dev-ops": "Documentation, logging, testing, configuration, dev-ops",
         "appendix-requirements": "Appendix: Requirements",
         "product-scope": "Product scope",
