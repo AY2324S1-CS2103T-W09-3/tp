@@ -121,6 +121,8 @@
         "adding-a-doctor-add-doctor": "Adding a doctor: add_doctor",
         "listing-all-patients-list": "Listing all patients : list",
         "listing-all-patients-list-appt": "Listing all patients : list_appt",
+        "editing-a-patient-edit": "Editing a patient: edit",
+        "editing-an-appointment-edit-appt": "Editing an appointment: edit_appt",
         "deleting-a-patient-delete": "Deleting a patient : delete",
         "deleting-an-appointment-delete-appt": "Deleting an appointment : delete_appt",
         "deleting-a-doctor-delete-doctor": "Deleting a doctor : delete_doctor",
