@@ -60,9 +60,6 @@
         "add-delete-appointment-feature": "Add/delete Appointment feature",
         "edit-appointment-feature": "Edit Appointment feature",
         "view-available-timeslots-feature": "View Available Timeslots feature",
-        "planned-enhancements": "Planned enhancements",
-        "edit-doctor": "Edit Doctor",
-        "edit-appointment-to-include-editing-of-doctor-details": "Edit Appointment to include editing of Doctor details",
         "documentation-logging-testing-configuration-dev-ops": "Documentation, logging, testing, configuration, dev-ops",
         "appendix-requirements": "Appendix: Requirements",
         "product-scope": "Product scope",
@@ -72,9 +69,16 @@
         "glossary": "Glossary",
         "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
         "launch-and-shutdown": "Launch and shutdown",
+        "editing-a-patient": "Editing a Patient",
         "deleting-a-patient": "Deleting a Patient",
         "view-available-timeslots": "View Available Timeslots",
-        "saving-data": "Saving data"
+        "saving-data": "Saving data",
+        "appendix-planned-enhancements": "Appendix: Planned Enhancements",
+        "allow-different-doctors-to-have-appointment-slots-at-the-same-timing": "Allow different doctors to have appointment slots at the same timing",
+        "change-the-tab-to-the-corresponding-tab-of-the-command": "Change the tab to the corresponding tab of the command",
+        "edit-appointment-to-include-editing-of-doctor-details": "Edit Appointment to include editing of Doctor details",
+        "appendix-future-features": "Appendix: Future Features",
+        "edit-doctor": "Edit Doctor"
       },
       "headingKeywords": {}
     },
