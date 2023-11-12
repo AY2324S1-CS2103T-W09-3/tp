@@ -91,7 +91,7 @@ ModelManager --> DeleteCommand
 deactivate ModelManager
 
 create CommandResult
-DeleteCommand -> CommandResult: new CommandResult(MESSAGE_DELETE_PATIENT_SUCCESS)
+DeleteCommand -> CommandResult: new CommandResult(MESSAGE_SUCCESS)
 activate CommandResult
 
 CommandResult -->  DeleteCommand
