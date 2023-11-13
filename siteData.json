@@ -82,6 +82,8 @@
         "find-patients-or-appointments": "Find Patients or Appointments",
         "saving-data": "Saving data",
         "appendix-planned-enhancements": "Appendix: Planned Enhancements",
+        "make-the-name-of-the-doctor-not-case-sensitive": "Make the name of the Doctor not case sensitive",
+        "design-consideration-3": "Design consideration",
         "allow-different-doctors-to-have-appointment-slots-at-the-same-timing": "Allow different doctors to have appointment slots at the same timing",
         "change-the-tab-to-the-corresponding-tab-of-the-command": "Change the tab to the corresponding tab of the command",
         "edit-appointment-to-include-editing-of-doctor-details-2": "Edit Appointment to include editing of Doctor details",
