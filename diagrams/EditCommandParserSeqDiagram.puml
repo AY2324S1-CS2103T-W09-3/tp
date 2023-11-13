@@ -1,0 +1,50 @@
+@startuml
+!include style.puml
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":ClinicAssistantParser" as ClinicAssistantParser LOGIC_COLOR
+participant ":EditXXXCommandParser" as EditCommandParser LOGIC_COLOR
+participant "e:EditXXXCommand" as EditCommand LOGIC_COLOR
+end box
+
+[-> LogicManager : execute("editXXX YYY")
+activate LogicManager
+
+LogicManager -> ClinicAssistantParser : parseCommand("editXXX YYY")")
+activate ClinicAssistantParser
+
+create EditCommandParser
+ClinicAssistantParser -> EditCommandParser
+activate EditCommandParser
+
+EditCommandParser --> ClinicAssistantParser
+deactivate EditCommandParser
+
+ClinicAssistantParser -> EditCommandParser : parse("YYY")
+activate EditCommandParser
+
+EditCommandParser -> EditCommandParser : createEditXXXDescriptor()
+activate EditCommandParser
+EditCommandParser --> EditCommandParser
+deactivate EditCommandParser
+
+create EditCommand
+EditCommandParser -> EditCommand
+activate EditCommand
+
+EditCommand --> EditCommandParser : e
+deactivate EditCommand
+
+EditCommandParser --> ClinicAssistantParser : e
+deactivate EditCommandParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+EditCommandParser -[hidden]-> ClinicAssistantParser
+destroy EditCommandParser
+
+ClinicAssistantParser --> LogicManager : e
+deactivate ClinicAssistantParser
+
+[<--LogicManager
+deactivate LogicManager
+@enduml

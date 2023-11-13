@@ -50,7 +50,7 @@ LogicManager -> DeleteAppointmentCommand : execute()
 activate DeleteAppointmentCommand
 
 
-DeleteAppointmentCommand -> DeleteAppointmentCommand : lasthownAppointment.get(1)
+DeleteAppointmentCommand -> DeleteAppointmentCommand : lastshownAppointment.get(1)
 DeleteAppointmentCommand -> DeleteAppointmentCommand : deletePatientAppointment(patient, appointmentToDelete)
 DeleteAppointmentCommand -> DeleteAppointmentCommand : deleteDoctorAppointment(doctor, appointmentToDelete)
 

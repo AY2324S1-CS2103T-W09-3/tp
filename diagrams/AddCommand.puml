@@ -1,0 +1,92 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":ClinicAssistantParser" as ClinicAssistantParser LOGIC_COLOR
+participant ":AddCommandParser" as AddCommandParser LOGIC_COLOR
+participant "d:AddCommand" as AddCommand LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":ModelManager" as ModelManager MODEL_COLOR
+participant ":ClinicAssistant" as ClinicAssistant MODEL_COLOR
+participant ":UniquePersonList" as UniquePersonList MODEL_COLOR
+participant ":ObservableList" as ObservableList MODEL_COLOR
+end box
+
+[-> LogicManager : execute("add /n Kevin")
+activate LogicManager
+
+LogicManager -> ClinicAssistantParser : parseCommand("add /n Kevin")
+activate ClinicAssistantParser
+
+create AddCommandParser
+ClinicAssistantParser -> AddCommandParser
+activate AddCommandParser
+
+AddCommandParser --> ClinicAssistantParser
+deactivate AddCommandParser
+
+ClinicAssistantParser ->  AddCommandParser : parse("Kevin")
+activate  AddCommandParser
+
+create AddCommand
+AddCommandParser ->  AddCommand
+activate  AddCommand
+
+AddCommand --> AddCommandParser : d
+deactivate   AddCommand
+
+ AddCommandParser --> ClinicAssistantParser : d
+deactivate  AddCommandParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+ AddCommandParser -[hidden]-> ClinicAssistantParser
+destroy AddCommandParser
+
+ClinicAssistantParser --> LogicManager : d
+deactivate ClinicAssistantParser
+
+LogicManager ->  AddCommand : execute()
+activate  AddCommand
+
+AddCommand -> ModelManager : addPerson("Kevin")
+activate ModelManager
+
+ModelManager -> ClinicAssistant : addPerson("Kevin")
+activate ClinicAssistant
+
+ClinicAssistant -> UniquePersonList : addPerson("Kevin")
+activate UniquePersonList
+
+UniquePersonList -> ObservableList : add()
+activate ObservableList
+
+ObservableList --> UniquePersonList
+deactivate ObservableList
+
+UniquePersonList --> ClinicAssistant :
+deactivate UniquePersonList
+
+ClinicAssistant --> ModelManager
+deactivate ClinicAssistant
+
+ModelManager -->  AddCommand
+deactivate ModelManager
+
+
+create CommandResult
+AddCommand -> CommandResult
+activate CommandResult
+
+CommandResult -->  AddCommand
+deactivate CommandResult
+
+AddCommand --> LogicManager : result
+deactivate AddCommand
+
+[<--LogicManager
+deactivate LogicManager
+@enduml
