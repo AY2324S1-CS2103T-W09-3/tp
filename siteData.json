@@ -77,6 +77,7 @@
         "allow-different-doctors-to-have-appointment-slots-at-the-same-timing": "Allow different doctors to have appointment slots at the same timing",
         "change-the-tab-to-the-corresponding-tab-of-the-command": "Change the tab to the corresponding tab of the command",
         "edit-appointment-to-include-editing-of-doctor-details": "Edit Appointment to include editing of Doctor details",
+        "display-date-in-timeslot-tab-even-on-first-view-call": "Display date in Timeslot tab even on first view call",
         "appendix-future-features": "Appendix: Future Features",
         "edit-doctor": "Edit Doctor"
       },
